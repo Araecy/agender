@@ -1,0 +1,28 @@
+{
+    //live sass compiler settings!
+    "liveSassCompile.settings.formats": [
+        // // extended css file!
+        // {
+        //     "format": "expanded",
+        //     "extensionName": ".css",
+        //     "savePath": "~/../css"
+        // },
+        //compressed css file!
+        {
+            "extensionName": ".css",
+            "format": "compressed",
+            "savePath": "~/../css"
+        }
+    ],
+    "liveSassCompile.settings.excludeList": [
+        "**/node_modules/**",
+        ".vscode/**"
+    ],
+    // No debug map gen!
+    "liveSassCompile.settings.generateMap": false,
+    //autoprefix, will auto add perfix like -webkit- -moz-..
+    "liveSassCompile.settings.autoprefix": [
+        "> 1%",
+        "last 2 versions"
+    ],
+}
