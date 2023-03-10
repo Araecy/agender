@@ -29,8 +29,8 @@
                     }
                     else{
                         echo "
-                            <a href='signup/'>Signup</a>
-                            <a href='login/'>Login</a>
+                            <a href='signup.php'>Signup</a>
+                            <a href='login.php'>Login</a>
                         ";
                     }
                 ?>
