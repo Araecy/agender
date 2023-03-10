@@ -18,7 +18,7 @@
         <!-- Navbar -->
         <header>
             <div id="navbar">
-                <a class="active" href="../">Leren Tellen</a>
+                <a class="active" href="./">Agender</a>
                 <div class="nav2">
                     <a href="login.php">Log-in</a>
                     <a href="./">Home</a>
@@ -51,7 +51,7 @@
 </html>
 
 <?php
-    if(isset($_POST["username"])){
+    if(isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["passwordRepeated"])){
         $previousPage = $_SESSION['previousPage'];
 
         // Taking all values from the form data(input)
@@ -60,7 +60,7 @@
         $formPasswordRepeated = $_REQUEST['passwordRepeated'];
 
         if($formPassword == $formPasswordRepeated){
-            require_once("../dbConn.php");
+            require_once("dbConn.php");
 
             // Check if username already exists
             $query  = $dbConn->prepare("SELECT * FROM users WHERE username = ?");

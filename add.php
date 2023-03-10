@@ -12,33 +12,43 @@
         <title>Agender | Add event</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <body>
-        <form method="post">
-            <div>
-                <label>Begin date</label>
-                <input type="date" name="beginDate" required>
-            </div>
-            <div>
-                <label>End date</label>
-                <input type="date" name="endDate">
-            </div>
-            <div>
-                <label>Title</label>
-                <input type="text" name="title" required>
-            </div>
-            <div>
-                <label>Description</label>
-                <input type="text" name="description">
-            </div>
-            <input type="submit">
-        </form>
-    </body>
 </html>
 
 <?php
-    if(isset($_POST["title"])){
-        echo "<h1>Received post!</h1>";
+    if(isset($_SESSION["loggedIn"])){
+        echo "
+            <form method='post'>
+                <div>
+                    <label>Begin date</label>
+                    <input type='date' name='beginDate' required>
+                </div>
+                <div>
+                    <label>End date</label>
+                    <input type='date' name='endDate'>
+                </div>
+                <div>
+                    <label>Title</label>
+                    <input type='text' name='title' required>
+                </div>
+                <div>
+                    <label>Description</label>
+                    <input type='text' name='description'>
+                </div>
+                <input type='submit'>
+            </form>
+        ";
+    }
+    else{
+        echo "
+            <h1>ERROR, U moet ingelogd zijn om een event toe te voegen.</h1>
+        ";
 
+        // Redirect automatically to the previous page after 3 seconds
+        $previousPage = $_SESSION['previousPage'];
+        header("Refresh: 3; url = $previousPage");
+    }
+
+    if(isset($_POST["title"]) && isset($_POST["beginDate"])){
         $userId      = $_SESSION["id"];
         $title       = $_POST["title"];
         $description = $_POST["description"];
@@ -49,10 +59,16 @@
         $query = $dbConn->prepare("INSERT INTO events (userId, title, description, beginDate, endDate) VALUES (?, ?, ?, ?, ?)");
         $query->bind_param('issss', $userId, $title, $description, $beginDate, $endDate);
 
+        $previousPage = $_SESSION['previousPage'];
+
         if($query->execute()){
-            echo "<h1>Succesfully inserted into database! :)</h1>";
+            // Redirect automatically to the previous page
+            header("Location: $previousPage");
         }
         else{
-            echo "<h1>Error inserting into database! :(</h1>";
+            echo "<h1>Error inserting into database.</h1>";
+
+            // Redirect automatically to the previous page after 3 seconds
+            header("Refresh: 3; url = $previousPage");
         }
     }

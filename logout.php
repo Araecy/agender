@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="media/images/icon.ico">
         <title>Agender | Logging out...</title>
+        <link rel="stylesheet" href="css/style.css">
     </head>
 </html>
 

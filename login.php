@@ -18,7 +18,7 @@
         <!-- Navbar -->
         <header>
             <div id="navbar">
-                <a class="active" href="../">Leren Tellen</a>
+                <a class="active" href="./">Agender</a>
                 <div class="nav2">
                     <a href="signup.php">Sign-up</a>
                     <a href="./">Home</a>
@@ -49,12 +49,12 @@
 </html>
 
 <?php
-    if(isset($_POST["username"])){
+    if(isset($_POST["username"]) && isset($_POST["password"])){
         // Taking all values from the form data(input)
         $formUsername   = $_REQUEST['username'];
         $formPassword   = $_REQUEST['password'];
 
-        require "../dbConn.php";
+        require "dbConn.php";
 
         $query  = $dbConn->prepare("SELECT * FROM users WHERE username = ?");
         $query->bind_param('s', $formUsername);
