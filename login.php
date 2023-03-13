@@ -16,15 +16,36 @@
     </head>
     <body>
         <!-- Navbar -->
-        <header>
-            <div id="navbar">
-                <a class="active" href="./">Agender</a>
-                <div class="nav2">
-                    <a href="signup.php">Sign-up</a>
-                    <a href="./">Home</a>
-                </div>
-            </div>
-        </header>
+        <nav>
+            <ul>
+                <li><a href=".">Home</a></li>
+
+                <?php
+                    if(isset($_SESSION['loggedIn'])){
+                        $username = $_SESSION['username'];
+                        echo "
+                            <li class='dropdown floatRight'>
+                                <a class='dropbtn'>$username</a>
+                                <div class='dropdown-content'>
+                                    <a href='logout.php'>Logout</a>
+                                </div>
+                            </li>
+                        ";
+                    }
+                    else{
+                        echo "
+                            <li class='floatRight'>
+                                <a>Login</a>
+                            </li>
+                            <li class='floatRight'>
+                                <a href='signup.php'>Signup</a>
+                            </li>
+                        ";
+                    }
+                ?>
+
+            </ul>
+        </nav>
 
         <!-- Login form -->
         <main>
