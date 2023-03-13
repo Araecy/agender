@@ -80,17 +80,20 @@
     
             <div class="wrapper-2" id="formW">
                 <div id="containerForm">
-                    <form action="">
-                        <!-- <label for="onderwerp">Onderwerp</label> -->
+                    <form method="post">
                         <h3 id="datumtekst" class="toevoegTekstDatum">23 Maart 2023</h3>
                         <h3 class="toevoegTekst">Voeg een nieuw item toe</h3>
-                        <input type="hidden" name="datum" id="datumVal" value="">
+                        <input type="hidden" name="beginDate" id="datumVal" value="" required>
                         <div class="wrap-innerform">
                             <div class="innerForm">
-                                <input name="tijd" type="time">
-                                <input name="onderwerp" type="text" placeholder="Onderwerp">
-                                <!-- <label for="toelichting">Toelichting</label> -->
-                                <textarea style="resize: none;" placeholder="Toelichting" id="toelichting" name="toelichting" rows="5" cols="40"></textarea>
+                                <label>Eind datum:</label>
+                                <input type="date" name="endDate">
+                                <label>Begin tijd:</label>
+                                <input name="beginTime" type="time">
+                                <label>Eind tijd:</label>
+                                <input name="endTime" type="time">
+                                <input name="title" type="text" placeholder="Onderwerp" required>
+                                <textarea style="resize: none;" placeholder="Toelichting" id="toelichting" name="description" rows="5" cols="40"></textarea>
                                 <input id="verstuur" type="submit" value="Verstuur">
                             </div>
                         </div>
@@ -105,3 +108,36 @@
 
 <?php
     $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
+
+    // If not logged in
+    if(!isset($_SESSION["loggedIn"])){
+        // Redirect automatically to the login page
+        header("Location: login.php");
+    }
+
+    if(isset($_POST["title"]) && isset($_POST["beginDate"])){
+        $userId      = $_SESSION["id"];
+        $title       = $_POST["title"];
+        $description = $_POST["description"];
+        $beginDate   = $_POST["beginDate"];
+        $endDate     = $_POST["endDate"];
+        $beginTime   = $_POST["beginTime"];
+        $endTime   = $_POST["endTime"];
+
+        require "dbConn.php";
+        $query = $dbConn->prepare("INSERT INTO events (userId, title, description, beginDate, endDate, beginTime, endTime) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $query->bind_param('issssss', $userId, $title, $description, $beginDate, $endDate, $beginTime, $endTime);
+
+        $previousPage = $_SESSION['previousPage'];
+
+        if($query->execute()){
+            // Redirect automatically to the previous page
+            header("Location: $previousPage");
+        }
+        else{
+            echo "<h1>Error inserting into database.</h1>";
+
+            // Redirect automatically to the previous page after 3 seconds
+            header("Refresh: 3; url = $previousPage");
+        }
+    }

@@ -58,7 +58,7 @@ const renderCalendar = () => {
             let yearLi = ids[2];
 
             document.getElementById("datumtekst").innerText = dayLi + " " + monthLi + " " + yearLi
-            document.getElementById("datumVal").value = dayLi + " " + monthLi + " " + yearLi;
+            document.getElementById("datumVal").value = yearLi + "-" + ids[1] + "-" + dayLi;
             console.log("day: " + dayLi);
             console.log("month: " + monthLi);
             console.log("year: " + yearLi);
