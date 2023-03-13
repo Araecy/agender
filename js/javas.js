@@ -62,9 +62,9 @@ const renderCalendar = () => {
             console.log("day: " + dayLi);
             console.log("month: " + monthLi);
             console.log("year: " + yearLi);
-        })
-    })
-}
+        });
+    });
+};
 renderCalendar();
 
 prevNextIcon.forEach(icon => {

@@ -1,11 +1,11 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
 
-body {
+body{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,25 +14,25 @@ body {
     background: plum;
 }
 
-.wrapper {
+.wrapper{
     width: 450px;
     background-color: white;
     border-radius: 10px;
 }
 
-.wrapper header {
+.wrapper header{
     display: flex;
     align-items: center;
     padding: 25px 30px 10px;
     justify-content: space-between;
 }
 
-header .current-date {
+header .current-date{
     font-size: 1.45rem;
     font-weight: 500;
 }
 
-header .icons span {
+header .icons span{
     height: 38px;
     width: 38px;
     color: #87878787;
@@ -46,45 +46,45 @@ header .icons span {
     user-select: none;
 }
 
-header .icons span:hover {
+header .icons span:hover{
     background-color: rgb(188, 188, 188);
 }
 
-header .icons span:last-child {
+header .icons span:last-child{
     margin-right: -10px;
 }
 
-.calendar {
+.calendar{
     padding: 20px;
 }
 
-.calendar ul {
+.calendar ul{
     display: flex;
     list-style: none;
     flex-wrap: wrap;
     text-align: center;
 }
 
-.calendar ul li {
+.calendar ul li{
     position: relative;
     width: calc(100%/7);
 }
 
-.calendar .weeks li {
+.calendar .weeks li{
     font-weight: 500;
 }
 
-.calendar .days {
+.calendar .days{
     margin-bottom: 20px;
 }
 
-.calendar .days li {
+.calendar .days li{
     cursor: pointer;
     z-index: 1;
     margin-top: 30px;
 }
 
-.calendar .days li::before {
+.calendar .days li::before{
     position: absolute;
     content: "";
     height: 40px;
@@ -96,36 +96,36 @@ header .icons span:last-child {
     z-index: -1;
 }
 
-.days li:hover::before {
+.days li:hover::before{
     background: #f2f2f2;
 }
 
-.days li.inactive {
+.days li.inactive{
     color: #aaa;
 }
 
-.days li.active::before {
+.days li.active::before{
     background: rgb(255, 136, 255);
 }
 
-.innerForm {
+.innerForm{
     display: flex;
     flex-direction: column;
     gap: 5px;
     width: 80%;
 }
 
-#verstuur {
+#verstuur{
     width: 70px;
 }
 
-.wrap-innerform {
+.wrap-innerform{
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.wrapper-2 {
+.wrapper-2{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,26 +135,26 @@ header .icons span:last-child {
     border-radius: 10px;
 }
 
-#containerForm {
+#containerForm{
     opacity: 0;
     transition: opacity 0.2s ease-in;
     transition-delay: 1s;
 }
 
 .toevoegTekstDatum,
-.toevoegTekst {
+.toevoegTekst{
     text-align: center;
 }
 
-.toevoegTekst {
+.toevoegTekst{
     padding-bottom: 30px;
 }
 
-.toevoegTekstDatum {
+.toevoegTekstDatum{
     font-size: 1.5em;
 }
 
-#formW {
+#formW{
     transition: width 1s ease-out;
     height: 0;
     width: 0;
