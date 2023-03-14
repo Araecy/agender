@@ -48,7 +48,7 @@ const renderCalendar = () => {
     daysTag.innerHTML = liTag;
     document.querySelectorAll('li').forEach(item => {
         item.addEventListener('click', event => {
-            document.getElementById("formW").style.height = '350px';
+            document.getElementById("formW").style.height = '390px';
             document.getElementById("formW").style.width = '450px';
             document.getElementById("formW").style.opacity = 1;
             document.getElementById("containerForm").style.opacity = 1;

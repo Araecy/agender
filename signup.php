@@ -11,6 +11,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="../media/images/icon.ico">
         <title>Agender | Signup</title>
+        <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/signupStyle.css">
     </head>
@@ -48,24 +50,20 @@
         </nav>
 
         <!-- Signup form -->
-        <main>
             <div class="Form1">
-                <form method="post">
-                    <label>Signup</label>
-                    <div>
-                        <div>
-                            <p>Username:</p>
-                            <p>Password:</p>
-                            <p>Password repeated:</p>
-                        </div>
-                        <div>
-                            <input type="text" name="username" autofocus required>
-                            <input type="password" name="password" required>
-                            <input type="password" name="passwordRepeated" required>
-                        </div>
-                    </div>
-                    <input type="submit" name="submit">
-                </form>
+                
+            <div class="loginLabel">Agender</div>
+            <div class="wrapper-form">   
+            <form class="formLogin" action="login.php" method="post">
+                
+                    <div class="formInner">
+                            <input class='inputVeld'  placeholder="Naam" type="text" name="username" autofocus required>
+                            <input class='inputVeld' placeholder="Wachtwoord" type="password" name="password" required>
+                            <input class='inputVeld'  placeholder="Herhaal wachtwoord" type="password" name="passwordRepeated" required>
+                            <input class='submitKnop' type="submit" value="Sign up">
+                            </div>
+                    </form>
+                </div>
             </div>
         </main>
     </body>

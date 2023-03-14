@@ -6,17 +6,8 @@
 }
 
 body{
-    background-color: plum;
-
-    > div.contentDiv{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        gap: 20px;
-    }
+    background-color: 	rgb(13, 143, 208);
 }
-
 
 // Navbar
 nav{
@@ -125,12 +116,16 @@ nav{
 
 
 #contentDiv{
-    margin: 100px auto 0 auto;
-    width: 450px;
+   display: flex;
+   gap: 20px;
+   justify-content: center;
+   min-height: 90vh;
+   align-items: center;
 }
 
 .wrapper{
     width: 450px;
+    z-index: 2;
     background-color: white;
     border-radius: 10px;
 }
@@ -245,7 +240,7 @@ header .icons span:last-child{
     justify-content: center;
     align-items: center;
     width: 450px;
-    height: 350px;
+    height: 390px;
     background-color: white;
     border-radius: 10px;
 }

@@ -110,10 +110,10 @@
     $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
     // If not logged in
-    if(!isset($_SESSION["loggedIn"])){
-        // Redirect automatically to the login page
-        header("Location: login.php");
-    }
+    // if(!isset($_SESSION["loggedIn"])){
+    //     // Redirect automatically to the login page
+    //     header("Location: login.php");
+    // }
 
     if(isset($_POST["title"]) && isset($_POST["beginDate"])){
         $userId      = $_SESSION["id"];
