@@ -18,17 +18,17 @@
         <!-- Navbar -->
         <nav>
             <ul>
-                <li><a href=".">Home</a></li>
+                <li><a href='.'>Home</a></li>
 
                 <?php
                     if(isset($_SESSION['loggedIn'])){
                         $username = $_SESSION['username'];
+
                         echo "
-                            <li class='dropdown floatRight'>
-                                <a class='dropbtn'>$username</a>
-                                <div class='dropdown-content'>
-                                    <a href='logout.php'>Logout</a>
-                                </div>
+                            <li class='floatRight'><a class='dropdown-arrow'>$username</a>
+                                <ul class='sub-menus'>
+                                    <li><a href='logout.php'>Logout</a></li>
+                                </ul>
                             </li>
                         ";
                     }
