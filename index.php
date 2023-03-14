@@ -23,27 +23,27 @@
                 <li><a href="">Home</a></li>
 
                 <?php
-                    if(isset($_SESSION['loggedIn'])){
-                        $username = $_SESSION['username'];
-                        echo "
-                            <li class='dropdown floatRight'>
-                                <a class='dropbtn'>$username</a>
-                                <div class='dropdown-content'>
-                                    <a href='logout.php'>Logout</a>
-                                </div>
-                            </li>
-                        ";
-                    }
-                    else{
-                        echo "
-                            <li class='floatRight'>
-                                <a href='login.php'>Login</a>
-                            </li>
-                            <li class='floatRight'>
-                                <a href='signup.php'>Signup</a>
-                            </li>
-                        ";
-                    }
+                    // if(isset($_SESSION['loggedIn'])){
+                    //     $username = $_SESSION['username'];
+                    //     echo "
+                    //         <li class='dropdown floatRight'>
+                    //             <a class='dropbtn'>$username</a>
+                    //             <div class='dropdown-content'>
+                    //                 <a href='logout.php'>Logout</a>
+                    //             </div>
+                    //         </li>
+                    //     ";
+                    // }
+                    // else{
+                    //     echo "
+                    //         <li class='floatRight'>
+                    //             <a href='login.php'>Login</a>
+                    //         </li>
+                    //         <li class='floatRight'>
+                    //             <a href='signup.php'>Signup</a>
+                    //         </li>
+                    //     ";
+                    // }
                 ?>
 
             </ul>
@@ -110,10 +110,10 @@
     $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
     // If not logged in
-    if(!isset($_SESSION["loggedIn"])){
-        // Redirect automatically to the login page
-        header("Location: login.php");
-    }
+    // if(!isset($_SESSION["loggedIn"])){
+    //     // Redirect automatically to the login page
+    //     header("Location: login.php");
+    // }
 
     if(isset($_POST["title"]) && isset($_POST["beginDate"])){
         $userId      = $_SESSION["id"];

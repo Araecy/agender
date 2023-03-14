@@ -10,6 +10,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="../media/images/icon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
         <title>Agender | Login</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/loginStyle.css">
@@ -50,20 +53,18 @@
         <!-- Login form -->
         <main>
             <div class="Form1">
-                <form action="login.php" method="post">
-                    <label>Login</label>
-                    <div>
-                        <div>
-                            <p>Username:</p>
-                            <p>Password:</p>
+                
+            <div class="loginLabel">Agender</div>
+            <div class="wrapper-form">   
+            <form class="formLogin" action="login.php" method="post">
+                
+                    <div class="formInner">
+                            <input class='inputVeld'  placeholder="Naam" type="text" name="username" autofocus required>
+                            <input class='inputVeld' placeholder="Wachtwoord" type="password" name="password" required>
+                            <input class='submitKnop' type="submit" value="Log in">
                         </div>
-                        <div>
-                            <input type="text" name="username" autofocus required>
-                            <input type="password" name="password" required>
-                        </div>
-                    </div>
-                    <input type="submit" name="submit">
-                </form>
+                    </form>
+                </div>
             </div>
         </main>
     </body>
