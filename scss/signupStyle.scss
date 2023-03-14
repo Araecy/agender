@@ -29,10 +29,12 @@ body {
     flex-direction: column;
     height: 65vh;
 }
+
 .wrapper-form{
     background-color: rgb(65,76,80);
     padding: 30px;
 }
+
 .formInner{
     display: flex;
     flex-direction: column;
@@ -40,8 +42,8 @@ body {
     align-items: center;
     gap: 10px;
     margin: 10px;
-
 }
+
 .loginLabel{
     text-align: center;
     padding: 20px 0px;
@@ -49,16 +51,17 @@ body {
     font-family: 'Patrick Hand', cursive;
     color: rgb(245, 245, 245);
     font-weight: 900;
-
 }
+
 .formLogin{
 
 }
-.inputVeld {
-    
+
+.inputVeld{
     width: 230px;
     height: 35px;
 }
+
 .submitKnop{
     border: none;
     color: black;

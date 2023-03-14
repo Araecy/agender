@@ -9,11 +9,11 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agender | Login</title>
         <link rel="icon" type="image/x-icon" href="../media/images/icon.ico">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-        <title>Agender | Login</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/loginStyle.css">
     </head>
@@ -53,12 +53,10 @@
         <!-- Login form -->
         <main>
             <div class="Form1">
-                
-            <div class="loginLabel">Agender</div>
-            <div class="wrapper-form">   
-            <form class="formLogin" action="login.php" method="post">
-                
-                    <div class="formInner">
+                <div class="loginLabel">Agender</div>
+                <div class="wrapper-form">   
+                    <form class="formLogin" action="login.php" method="post">
+                        <div class="formInner">
                             <input class='inputVeld'  placeholder="Naam" type="text" name="username" autofocus required>
                             <input class='inputVeld' placeholder="Wachtwoord" type="password" name="password" required>
                             <input class='submitKnop' type="submit" value="Log in">

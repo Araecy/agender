@@ -9,10 +9,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../media/images/icon.ico">
         <title>Agender | Signup</title>
+        <link rel="icon" type="image/x-icon" href="../media/images/icon.ico">
         <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/signupStyle.css">
     </head>
@@ -20,7 +19,7 @@
         <!-- Navbar -->
         <nav>
             <ul>
-                <li><a>Home</a></li>
+                <li><a href=".">Home</a></li>
 
                 <?php
                     if(isset($_SESSION['loggedIn'])){

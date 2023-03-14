@@ -1,0 +1,154 @@
+#contentDiv{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    min-height: 90vh;
+    align-items: center;
+}
+
+.wrapper{
+    width: 450px;
+    z-index: 2;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.wrapper header{
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+
+header .current-date{
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+
+header .icons span{
+    height: 38px;
+    width: 38px;
+    color: #87878787;
+    font-size: 1.9rem;
+    margin: 0 1px;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    background: lightgray;
+    cursor: pointer;
+    user-select: none;
+}
+
+header .icons span:hover{
+    background-color: rgb(188, 188, 188);
+}
+
+header .icons span:last-child{
+    margin-right: -10px;
+}
+
+.calendar{
+    padding: 20px;
+}
+
+.calendar ul{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.calendar ul li{
+    position: relative;
+    width: calc(100%/7);
+}
+
+.calendar .weeks li{
+    font-weight: 500;
+}
+
+.calendar .days{
+    margin-bottom: 20px;
+}
+
+.calendar .days li{
+    cursor: pointer;
+    z-index: 1;
+    margin-top: 30px;
+}
+
+.calendar .days li::before{
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.days li:hover::before{
+    background: #f2f2f2;
+}
+
+.days li.inactive{
+    color: #aaa;
+}
+
+.days li.active::before{
+    background: rgb(255, 136, 255);
+}
+
+.innerForm{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 80%;
+}
+
+#verstuur{
+    width: 70px;
+}
+
+.wrap-innerform{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 390px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#containerForm{
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+    transition-delay: 1s;
+}
+
+.toevoegTekstDatum,
+.toevoegTekst{
+    text-align: center;
+}
+
+.toevoegTekst{
+    padding-bottom: 30px;
+}
+
+.toevoegTekstDatum{
+    font-size: 1.5em;
+}
+
+#formW{
+    transition: width 1s ease-out;
+    height: 0;
+    width: 0;
+}
