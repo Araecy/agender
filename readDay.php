@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Agender | Read day</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <form method="post">
-            <input type="date" name="date">
-            <input type="submit">
-        </form>
-    </body>
-</html>
-
 <?php
     if(isset($_POST["date"])){
         $date = $_POST["date"];
