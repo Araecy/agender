@@ -23,27 +23,27 @@
                 <li><a>Home</a></li>
 
                 <?php
-                    // if(isset($_SESSION['loggedIn'])){
-                    //     $username = $_SESSION['username'];
+                    if(isset($_SESSION['loggedIn'])){
+                        $username = $_SESSION['username'];
 
-                    //     echo "
-                    //         <li class='floatRight'><a class='dropdown-arrow'>$username</a>
-                    //             <ul class='sub-menus'>
-                    //                 <li><a href='logout.php'>Logout</a></li>
-                    //             </ul>
-                    //         </li>
-                    //     ";
-                    // }
-                    // else{
-                    //     echo "
-                    //         <li class='floatRight'>
-                    //             <a href='login.php'>Login</a>
-                    //         </li>
-                    //         <li class='floatRight'>
-                    //             <a href='signup.php'>Signup</a>
-                    //         </li>
-                    //     ";
-                    // }
+                        echo "
+                            <li class='floatRight'><a class='dropdown-arrow'>$username</a>
+                                <ul class='sub-menus'>
+                                    <li><a href='logout.php'>Logout</a></li>
+                                </ul>
+                            </li>
+                        ";
+                    }
+                    else{
+                        echo "
+                            <li class='floatRight'>
+                                <a href='login.php'>Login</a>
+                            </li>
+                            <li class='floatRight'>
+                                <a href='signup.php'>Signup</a>
+                            </li>
+                        ";
+                    }
                 ?>
 
             </ul>
@@ -116,41 +116,47 @@
         </div>
 
         <script src="js/javas.js"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+            crossorigin="anonymous">
+        </script>
+        <script src="js/readDayScript.js"></script>
     </body>
 </html>
 
 <?php
-    // $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
+    $_SESSION['previousPage'] = $_SERVER['REQUEST_URI'];
 
-    // // If not logged in
-    // if(!isset($_SESSION["loggedIn"])){
-    //     // Redirect automatically to the login page
-    //     header("Location: login.php");
-    // }
+    // If not logged in
+    if(!isset($_SESSION["loggedIn"])){
+        // Redirect automatically to the login page
+        // header("Location: login.php"); <--- UNCOMMENT THIS LINE BEFORE RELEASE!!!
+    }
 
-    // if(isset($_POST["title"]) && isset($_POST["beginDate"])){
-    //     $userId      = $_SESSION["id"];
-    //     $title       = $_POST["title"];
-    //     $description = $_POST["description"];
-    //     $beginDate   = $_POST["beginDate"];
-    //     $endDate     = $_POST["endDate"];
-    //     $beginTime   = $_POST["beginTime"];
-    //     $endTime   = $_POST["endTime"];
+    if(isset($_POST["title"]) && isset($_POST["beginDate"])){
+        $userId      = $_SESSION["id"];
+        $title       = $_POST["title"];
+        $description = $_POST["description"];
+        $beginDate   = $_POST["beginDate"];
+        $endDate     = $_POST["endDate"];
+        $beginTime   = $_POST["beginTime"];
+        $endTime   = $_POST["endTime"];
 
-    //     require "dbConn.php";
-    //     $query = $dbConn->prepare("INSERT INTO events (userId, title, description, beginDate, endDate, beginTime, endTime) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    //     $query->bind_param('issssss', $userId, $title, $description, $beginDate, $endDate, $beginTime, $endTime);
+        require "dbConn.php";
+        $query = $dbConn->prepare("INSERT INTO events (userId, title, description, beginDate, endDate, beginTime, endTime) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $query->bind_param('issssss', $userId, $title, $description, $beginDate, $endDate, $beginTime, $endTime);
 
-    //     $previousPage = $_SESSION['previousPage'];
+        $previousPage = $_SESSION['previousPage'];
 
-    //     if($query->execute()){
-    //         // Redirect automatically to the previous page
-    //         header("Location: $previousPage");
-    //     }
-    //     else{
-    //         echo "<h1>Error inserting into database.</h1>";
+        if($query->execute()){
+            // Redirect automatically to the previous page
+            header("Location: $previousPage");
+        }
+        else{
+            echo "<h1>Error inserting into database.</h1>";
 
-    //         // Redirect automatically to the previous page after 3 seconds
-    //         header("Refresh: 3; url = $previousPage");
-    //     }
-    // }
+            // Redirect automatically to the previous page after 3 seconds
+            header("Refresh: 3; url = $previousPage");
+        }
+    }
