@@ -71,13 +71,13 @@
                         <li>Thu</li>
                         <li>Fri</li>
                         <li>Sat</li>
-    
+
                     </ul>
                     <ul class="days">
                     </ul>
                 </div>
             </div>
-    
+
             <div class="wrapper-2" id="formW">
                 <div id="containerForm">
                     <form method="post">
@@ -119,8 +119,8 @@
         <script
             src="https://code.jquery.com/jquery-3.6.4.min.js"
             integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-            crossorigin="anonymous">
-        </script>
+            crossorigin="anonymous"
+        ></script>
         <script src="js/readDayScript.js"></script>
     </body>
 </html>
@@ -141,7 +141,7 @@
         $beginDate   = $_POST["beginDate"];
         $endDate     = $_POST["endDate"];
         $beginTime   = $_POST["beginTime"];
-        $endTime   = $_POST["endTime"];
+        $endTime     = $_POST["endTime"];
 
         require "dbConn.php";
         $query = $dbConn->prepare("INSERT INTO events (userId, title, description, beginDate, endDate, beginTime, endTime) VALUES (?, ?, ?, ?, ?, ?, ?)");
