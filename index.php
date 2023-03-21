@@ -131,7 +131,7 @@
     // If not logged in
     if(!isset($_SESSION["loggedIn"])){
         // Redirect automatically to the login page
-        // header("Location: login.php"); <--- UNCOMMENT THIS LINE BEFORE RELEASE!!!
+        // header("Location: login.php"); // <--- UNCOMMENT THIS LINE BEFORE RELEASE!!!
     }
 
     if(isset($_POST["title"]) && isset($_POST["beginDate"])){
