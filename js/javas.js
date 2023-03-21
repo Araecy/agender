@@ -24,34 +24,70 @@ const renderCalendar = () => {
 
     for (let i = firstDayofMonth; i > 0; i--) {
         if (currMonth - 1 < 0) {
-            liTag += `<li id="${lastDateofLastMonth - i + 1 } ${11} ${currYear -1}" class="inactive">${lastDateofLastMonth - i + 1 }</li>`;
+            liTag += `<li id="${lastDateofLastMonth - i + 1 } ${11} ${currYear -1}" class="inactive valid">${lastDateofLastMonth - i + 1 }</li>`;
         } else {
-            liTag += `<li id="${lastDateofLastMonth - i + 1 } ${currMonth - 1} ${currYear}" class="inactive">${lastDateofLastMonth - i + 1 }</li>`;
+            liTag += `<li id="${lastDateofLastMonth - i + 1 } ${currMonth - 1} ${currYear}" class="inactive valid">${lastDateofLastMonth - i + 1 }</li>`;
         }
     }
 
     for (let i = 1; i <= lastDateofMonth; i++) {
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() &&
             currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li id="${i} ${currMonth} ${currYear}" class="${isToday}">${i}</li>`;
+        liTag += `<li id="${i} ${currMonth} ${currYear}" class="${isToday} valid">${i}</li>`;
     }
 
     for (let i = lastDayofMonth; i < 6; i++) {
         if (currMonth + 1 > 11) {
-            liTag += `<li id="${i - lastDayofMonth + 1 } ${0} ${currYear +1}" class="inactive">${i - lastDayofMonth + 1 }</li>`;
+            liTag += `<li id="${i - lastDayofMonth + 1 } ${0} ${currYear +1}" class="inactive valid">${i - lastDayofMonth + 1 }</li>`;
         } else {
-            liTag += `<li id="${i - lastDayofMonth + 1 } ${currMonth + 1} ${currYear}" class="inactive">${i - lastDayofMonth + 1 }</li>`;
+            liTag += `<li id="${i - lastDayofMonth + 1 } ${currMonth + 1} ${currYear}" class="inactive valid">${i - lastDayofMonth + 1 }</li>`;
 
         }
     }
     currentDate.innerText = `${months[currMonth]} ${currYear}`;
     daysTag.innerHTML = liTag;
-    document.querySelectorAll('li').forEach(item => {
+    document.querySelectorAll('.valid').forEach(item => {
         item.addEventListener('click', event => {
             document.getElementById("formW").style.height = '390px';
             document.getElementById("formW").style.width = '450px';
             document.getElementById("formW").style.opacity = 1;
+
+            document.getElementById("containerForm").style.opacity = 0;
+            document.getElementById("containerForm").style.height = 0;
+            document.getElementById("containerForm").style.width = 0;
+
+            document.getElementById("events").style.opacity = 1;
+
+            let ids = item.id.split(" ");
+            document.getElementById("innerToevoeg").id = item.id;
+            let dayLi = ids[0];
+            let monthLi = months[ids[1]];
+            let yearLi = ids[2];
+
+            document.getElementById("datumtekst").innerText = dayLi + " " + monthLi + " " + yearLi
+            document.getElementById("datumVal").value = yearLi + "-" + ids[1] + "-" + dayLi;
+            console.log("day: " + dayLi);
+            console.log("month: " + monthLi);
+            console.log("year: " + yearLi);
+        });
+    });
+
+    document.querySelectorAll('.innerToevoeg').forEach(item => {
+        item.addEventListener('click', event => {
+            document.getElementById("formW").style.height = '390px';
+            document.getElementById("formW").style.width = '450px';
+            document.getElementById("formW").style.opacity = 1;
+
             document.getElementById("containerForm").style.opacity = 1;
+            document.getElementById("containerForm").style.height = '390px';
+            document.getElementById("containerForm").style.width = '450px';
+
+            document.getElementById("events").style.opacity = 0;
+            document.getElementById("events").style.height = 0;
+            document.getElementById("events").style.width = 0;
+
+            document.getElementById("toevoegen").style.opacity = 0;
+
             let ids = item.id.split(" ");
             let dayLi = ids[0];
             let monthLi = months[ids[1]];

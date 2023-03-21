@@ -1,16 +1,20 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
 
-body{
-    background-color: rgb(13, 143, 208);
+body {
+    background-color: rgb(25, 36, 40);
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to top left, rgb(14, 30, 37) 50%, rgb(25, 36, 40) 50%);
+    overflow: hidden;
 }
 
 // Navbar
-nav{
+nav {
     background: #2E2E2E;
     color: #FFF;
     height: 45px;
@@ -19,30 +23,25 @@ nav{
     position: sticky;
     top: 0;
     min-width: 200px;
-
     ul,
-    li{
+    li {
         margin: 0 auto;
         padding: 0;
         list-style: none
     }
-
-    ul{
+    ul {
         width: 100%;
     }
-
-    li{
+    li {
         float: left;
         display: inline;
         position: relative;
-
-        a:hover{
+        a:hover {
             color: #0099CC;
             background: #F2F2F2;
         }
     }
-
-    a{
+    a {
         display: block;
         line-height: 45px;
         padding: 0 14px;
@@ -50,13 +49,11 @@ nav{
         color: #FFFFFF;
         font-size: 16px;
     }
-
-    a.dropdown-arrow:after{
+    a.dropdown-arrow:after {
         content: "\25BE";
         margin-left: 5px;
     }
-
-    input{
+    input {
         display: none;
         margin: 0;
         padding: 0;
@@ -65,22 +62,19 @@ nav{
         opacity: 0;
         cursor: pointer
     }
-
-    label{
+    label {
         display: none;
         line-height: 45px;
         text-align: center;
         position: absolute;
         left: 35px
     }
-
-    label:before{
+    label:before {
         font-size: 1.6em;
-        content: "\2261"; 
+        content: "\2261";
         margin-left: 20px;
     }
-
-    ul.sub-menus{
+    ul.sub-menus {
         height: auto;
         overflow: hidden;
         min-width: 73px;
@@ -88,28 +82,23 @@ nav{
         position: absolute;
         z-index: 99;
         display: none;
-
-        li{
+        li {
             display: block;
             width: 100%;
         }
-
-        a{
+        a {
             color: #FFFFFF;
             font-size: 16px;
         }
-
-        a:hover{
+        a:hover {
             background: #F2F2F2;
             color: #444444;
         }
     }
-
-    li:hover ul.sub-menus{
+    li:hover ul.sub-menus {
         display: block
     }
-
-    .floatRight{
+    .floatRight {
         float: right !important;
     }
 }
