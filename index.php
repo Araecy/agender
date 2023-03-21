@@ -100,13 +100,13 @@
                     </form>
                 </div>
                 <div id="events" class="events">
-                    <h2 class="teDoen">Te doen</h2>
+                    <h2 id="tedoen" class="teDoen">Te doen</h2>
                     <div class="event">
                         <div class="wrapNames">
-                            <div class="eventName">Kopen</div>
-                            <div class="eventBeschrijf">ik moet een appel kopen</div>
+                            <div id="eventName" class="eventName">Kopen</div>
+                            <div id="eventBeschrijf" class="eventBeschrijf">ik moet een appel kopen</div>
                         </div>
-                        <div class="eventTijd">12:09</div>
+                        <div id="eventTijd" class="eventTijd">12:09</div>
                     </div>
                     <div id="toevoegen" class="toevoegen">
                         <div id="innerToevoeg" class="innerToevoeg">+</div>

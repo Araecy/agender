@@ -1,6 +1,6 @@
 const currentDate = document.querySelector(".current-date");
 const daysTag = document.querySelector(".days");
-
+let tempVal;
 prevNextIcon = document.querySelectorAll(".icons span");
 
 let date = new Date(),
@@ -48,6 +48,21 @@ const renderCalendar = () => {
     daysTag.innerHTML = liTag;
     document.querySelectorAll('.valid').forEach(item => {
         item.addEventListener('click', event => {
+            tempVal = item.id;
+        //Te doen lijst tonen:
+            document.getElementById("events").style.opacity = 1;
+            document.getElementById("events").style.height = '100%';
+            document.getElementById("events").style.width = '100%';
+
+            document.getElementById("eventName").style.opacity = 1;
+            document.getElementById("eventBeschrijf").style.opacity = 1;
+            document.getElementById("eventTijd").style.opacity = 1;
+
+            document.getElementById("tedoen").style.opacity = 1;
+
+            
+            document.getElementById("toevoegen").style.opacity = 1;
+
             document.getElementById("formW").style.height = '390px';
             document.getElementById("formW").style.width = '450px';
             document.getElementById("formW").style.opacity = 1;
@@ -56,10 +71,13 @@ const renderCalendar = () => {
             document.getElementById("containerForm").style.height = 0;
             document.getElementById("containerForm").style.width = 0;
 
+
+            document.getElementById('containerForm').style.display = 'none';
+
             document.getElementById("events").style.opacity = 1;
 
             let ids = item.id.split(" ");
-            document.getElementById("innerToevoeg").id = item.id;
+            // document.getElementById("innerToevoeg").id = item.id;
             let dayLi = ids[0];
             let monthLi = months[ids[1]];
             let yearLi = ids[2];
@@ -74,6 +92,9 @@ const renderCalendar = () => {
 
     document.querySelectorAll('.innerToevoeg').forEach(item => {
         item.addEventListener('click', event => {
+
+            document.getElementById('containerForm').style.display = 'block';
+
             document.getElementById("formW").style.height = '390px';
             document.getElementById("formW").style.width = '450px';
             document.getElementById("formW").style.opacity = 1;
@@ -86,9 +107,18 @@ const renderCalendar = () => {
             document.getElementById("events").style.height = 0;
             document.getElementById("events").style.width = 0;
 
-            document.getElementById("toevoegen").style.opacity = 0;
+            document.getElementById("containerForm").style.transition = 'none';
+            document.getElementById("events").style.transition = 'none';
 
-            let ids = item.id.split(" ");
+            document.getElementById("eventName").style.opacity = 0;
+            document.getElementById("eventBeschrijf").style.opacity = 0;
+            document.getElementById("eventTijd").style.opacity = 0;
+
+            document.getElementById("tedoen").style.opacity = 0;
+            
+            document.getElementById("toevoegen").style.opacity = 0;
+            
+            let ids = tempVal.split(" ");
             let dayLi = ids[0];
             let monthLi = months[ids[1]];
             let yearLi = ids[2];
