@@ -90,6 +90,8 @@ const renderCalendar = () => {
         });
     });
 
+    
+
     document.querySelectorAll('.innerToevoeg').forEach(item => {
         item.addEventListener('click', event => {
 
@@ -130,6 +132,14 @@ const renderCalendar = () => {
             console.log("year: " + yearLi);
         });
     });
+//Loop voor kleur bolletje:
+document.querySelectorAll('.valid').forEach(item => {
+    let id = item.id
+    if(id == "10 2 2023"){
+        item.classList.add("newItem")
+    }
+})
+
 };
 renderCalendar();
 
@@ -147,3 +157,34 @@ prevNextIcon.forEach(icon => {
         renderCalendar();
     });
 });
+
+document.querySelectorAll('.allExit').forEach(item => {
+    item.addEventListener('click', event => {
+        document.getElementById('containerForm').style.display = 'block';
+
+        document.getElementById("formW").style.height = '0';
+        document.getElementById("formW").style.width = '0';
+        document.getElementById("formW").style.opacity = 0;
+
+        document.getElementById("containerForm").style.opacity = 0;
+        document.getElementById("containerForm").style.height = 0;
+        document.getElementById("containerForm").style.width = 0;
+
+        document.getElementById("events").style.opacity = 0;
+        document.getElementById("events").style.height = 0;
+        document.getElementById("events").style.width = 0;
+
+        document.getElementById("containerForm").style.transition = "0.2s ease-in";
+        document.getElementById("events").style.transition = '0.2s ease-in';
+        document.getElementById("containerForm").style.transitionDelay = "1s";
+        document.getElementById("events").style.transitionDelay = '1s';
+
+        document.getElementById("eventName").style.opacity = 0;
+        document.getElementById("eventBeschrijf").style.opacity = 0;
+        document.getElementById("eventTijd").style.opacity = 0;
+
+        document.getElementById("tedoen").style.opacity = 0;
+        
+        document.getElementById("toevoegen").style.opacity = 0;
+    })
+})
