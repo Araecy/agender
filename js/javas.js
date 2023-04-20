@@ -132,13 +132,15 @@ const renderCalendar = () => {
             console.log("year: " + yearLi);
         });
     });
-//Loop voor kleur bolletje:
-document.querySelectorAll('.valid').forEach(item => {
-    let id = item.id
-    if(id == "10 2 2023"){
-        item.classList.add("newItem")
-    }
-})
+    //Loop voor kleur bolletje:
+    document.querySelectorAll('.valid').forEach(item => {
+        let id = item.id
+        if(id == "10 2 2023"){
+            item.classList.add("newItem")
+        }
+    })
+
+    readDay();
 
 };
 renderCalendar();
@@ -188,3 +190,44 @@ document.querySelectorAll('.allExit').forEach(item => {
         document.getElementById("toevoegen").style.opacity = 0;
     })
 })
+
+function readDay(){
+    document.querySelectorAll(".valid").forEach(element => {
+        element.addEventListener("click", function(){
+            console.log("readDayScript.js eventListener detected!");
+            console.log("Selected date: " + element.id);
+            $.ajax({
+                type:     "POST",
+                url:      "php/readDay.php",
+                dataType: "json",
+                // data:     "date=" + element.id,
+                data: {
+                    "date": element.id
+                },
+                success: function(jsonarray){
+                    /* TEST: */
+                    document.getElementById("events").innerHTML = `
+                        <div class="containX2">
+                            <div class="allExit exit2">X</div>
+                        </div>
+                        <h2 id="tedoen" class="teDoen" style="opacity: 1;">Te doen</h2>
+                    `;
+                    for(let i = 0; i < jsonarray[0].length; i++){
+                        document.getElementById("events").innerHTML += `
+                            <div class="event">
+                                <div class="wrapNames">
+                                    <div id="eventName" class="eventName" style="opacity: 1;">${jsonarray[0][i]["title"]}</div>
+                                    <div id="eventBeschrijf" class="eventBeschrijf" style="opacity: 1;">${jsonarray[0][i]["description"]}</div>
+                                </div>
+                                <div id="eventTijd" class="eventTijd" style="opacity: 1;">${jsonarray[0][i]["beginTime"]}</div>
+                            </div>
+                        `;
+                    }
+                },
+                error: function(error){
+                    // console.log (error.responseText);
+                }
+            });
+        });
+    });
+}

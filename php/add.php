@@ -53,8 +53,11 @@
         $title       = $_POST["title"];
         $description = $_POST["description"];
         $beginDate   = $_POST["beginDate"];
-        // echo $beginDate;
-        $endDate     = $_POST["endDate"];
+
+        $timestamp = strtotime($beginDate);
+        $beginDate = date('Y-m-d', strtotime('+1 month', $timestamp));
+
+        $endDate = $_POST["endDate"];
 
         require "dbConn.php";
         $query = $dbConn->prepare("INSERT INTO events (userId, title, description, beginDate, endDate) VALUES (?, ?, ?, ?, ?)");
